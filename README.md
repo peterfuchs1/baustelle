@@ -6,7 +6,7 @@
 
 # Aufgabenstellung
 
-## Für die Verwaltung der Baustellenbelieferung sind folgende Klassen zu realisieren:
+## 1. Für die Verwaltung der Baustellenbelieferung sind folgende Klassen zu realisieren:
 Ein **Transportunternehmen**    
 -	hat eine *id* (eindeutig, unveränderlich, beginnend bei 100000), 
 -	einen *Namen* (nicht leerer String) und    
@@ -53,7 +53,7 @@ Die zusätzlichen 3 Punkte gibt es für das richtige Einzeichnen der Methoden au
 
 ---
 
-## Implementieren Sie die Klassen aus Teil 1 in Java.    
+## 2. Implementieren Sie die Klassen aus Teil 1 in Java.    
 Für alle Klassen ist jeweils ein Konstruktor zu erstellen, mit welchem alle nicht automatisch generierten Werte von Instanzvariablen gesetzt werden können.    
 Der Versuch, illegale Werte zu setzen, muss dazu führen, dass eine Exception geworfen wird. Achten Sie insbesondere auch auf Konstruktorparameter mit dem Wert null.    
 Sie dürfen davon ausgehen, dass Collections, die als Parameter übergeben werden, keine null Werte und keine Einträge mehrfach enthalten, das muss nicht extra überprüft werden.
@@ -82,7 +82,7 @@ Das freie Beladungsgewicht errechnet sich aus dem maximalen Beladungsgewicht abz
 
 ---
 
-## Implementieren Sie die folgenden Methoden 
+## 3. Implementieren Sie die folgenden Methoden 
 ??? die Fragezeichen sind dabei durch passende Datentypen zu ersetzen (eventuell notwendige getter-Methoden sind ebenfalls zu realisieren):   
 
 *??? addFahrzeug(???)*: Einer Baustelle soll ein Fahrzeug zugewiesen werden. Hierbei sind folgende Regeln zu beachten:   
@@ -108,7 +108,7 @@ Das freie Beladungsgewicht errechnet sich aus dem maximalen Beladungsgewicht abz
 *??? addFahrzeug (???)*: Einem Transportunternehmen soll ein Fahrzeug zugewiesen werden.    
 -	Bitte beachten Sie die angegebenen Regeln aus Aufgabe 1.   
 ---
-## Testlauf mit main( )
+## 4. Testlauf mit main( )
 Zeigen Sie das Funktionieren Ihrer Klassen und Methoden anhand eines main( ) -Programms, in dem eventuell geworfene Exceptions abgefangen werden.    
 Achten Sie darauf, dass das Programm vollständig durchlaufen werden kann und dass dabei möglichst viel der implementierten Funktionalität und auch einige Fehlerfälle demonstriert werden.
 Ein möglicher Testplan könnte wie folgt aussehen (die Angabe dient lediglich als Beispiel und ist in nicht ausführbaren pseudo-Code formuliert):   
