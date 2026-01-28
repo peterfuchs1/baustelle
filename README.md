@@ -64,14 +64,14 @@ Die Ausgabe der verschiedenen Instanzen mittels *System.out.println( )* soll in 
 Normal (0%), Sperrgut (3%), Gefahrengut (10%), Explosiv (20%)   
 -	**Fahrzeug**:   
 [ Kennzeichen: freies Beladungsgewicht kg, Platzbedarf m2 ,Beladungstyp, Anzbaustellen Baustelle (n)]  also z. B.:   
-[KO 744: 810 kg, 7 m2, Sperrgut (3%) , 2 Baustelle (n) ]
+[KO744: 810 kg, 7 m2, Sperrgut (3%) , 2 Baustelle (n) ]
 Das freie Beladungsgewicht errechnet sich aus dem maximalen Beladungsgewicht abzüglich dem aktuellen Beladungsgewicht.
 -	**Lastwagen**: 
 [ Kennzeichen : freies Beladungsgewicht kg, Platzbedarf m2, Beladungstyp, Achsanzahl Achsen, Anzbaustellen Baustelle (n)] also z. B.:
-[K07441: 1250 kg, 15 m2, Explosiv (20%), 3 Achsen, 1 Baustelle (n) ]
+[KO7441: 1250 kg, 15 m2, Explosiv (20%), 3 Achsen, 1 Baustelle (n) ]
 -	**Kran**: 
 [ Kennzeichen : Hoehe m, Hubgewicht kg, Platzbedarf m2,  Anzbaustellen Baustelle (n)] also z. B.:
-[K07442: 15 m, 15000 kg, 20 m2, 3 Baustelle (n) ]
+[KO7442: 15 m, 15000 kg, 20 m2, 3 Baustelle (n) ]
 -	**Baustelle**:   
 [ PLZ, Ort, Strasse, Hausnummer, Zugewiesene Fahrzeuge: Anz Fahrzeuge] also z. B.:
 [2100, Korneuburg, Laaerstrasse, 13, Zugewiesene Fahrzeuge : 4]
