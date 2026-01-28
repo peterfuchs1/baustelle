@@ -18,8 +18,8 @@ public class Lastwagen extends Fahrzeug {
 
 	}
 	public void gewichtMax(int gewichtMax) {
-		if(gewichtMax>2000*achsenzahl) {
-			throw new IllegalArgumentException("GewichtMax zu hoch fuer Lastwagen");
+		if(gewichtMax<2000) {
+			throw new IllegalArgumentException("Das maximale Gewicht ist zu gering");
 		}
 	}
 	public void platz(int platz) {
@@ -27,11 +27,12 @@ public class Lastwagen extends Fahrzeug {
 			throw new IllegalArgumentException("Platz zu gering fuer Lastwagen");
 		}
 	}
-
+	public String getLastwagenDaten(){
+		return ""+this.achsenzahl+" Achsen"+
+				", "+this.getAnzBaustellen();
+	}
 	@Override
 	public String toString() {
-		return super.toString()+" -> Lastwagen{" +
-				"achsenzahl=" + achsenzahl +
-				'}';
+		return "[ "+ this.getLastwagenDaten()+" ]";
 	}
 }

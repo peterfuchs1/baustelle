@@ -11,11 +11,14 @@ public enum Beladungstyp {
 	EXPLOSIV(20);
 
 	private Beladungstyp(int value) {
-
+		this.value = value;
 	}
 	private int value;
 	public int getPlatz() {
 		return value;
 	}
+
+
+
 
 }

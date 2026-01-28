@@ -39,15 +39,17 @@ public class Fahrzeug {
 		return gewichtMax - gewichtAktuell;
 	}
 
+	public String getFahrzeugDaten(){
+		return kennzeichen+
+				": "+this.freiesBeladungsgewicht()+ " kg"+
+				", "+platz+ " m2 "+
+				", "+beladungstyp+"("+beladungstyp.getPlatz()+" %)";
+	}
+
 	@Override
 	public String toString() {
-		return "Fahrzeug{" +
-				"kennzeichen='" + kennzeichen + '\'' +
-				", gewichtMax=" + gewichtMax +
-				", gewichtAktuell=" + gewichtAktuell +
-				", platz=" + platz +
-				", beladungstyp=" + beladungstyp +
-				'}';
+		return "[ " +getFahrzeugDaten()+
+		", "+anzBaustellen+" Baustelle (n)"+" ]";
 	}
 	public void incrementAnzBaustellen() {
 		this.anzBaustellen++;

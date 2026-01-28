@@ -39,8 +39,8 @@ public class TransportUnternehmen {
 		for(Fahrzeug f : fahrzeuge) {
 			belegteFlaeche += f.getPlatz();
 		}
-		System.out.println("belegteFlaeche: ohne stream: "+belegteFlaeche);
-		System.out.println("belegteFlaeche: mit stream: "+bf);
+		// System.out.println("belegteFlaeche: ohne stream: "+belegteFlaeche);
+		// System.out.println("belegteFlaeche: mit stream: "+bf);
 		// 5% Puffer fuer Bewegungsfreiheit abziehen
 		return 0.95*this.abstellFlaeche - belegteFlaeche;
 	}
@@ -94,8 +94,8 @@ public class TransportUnternehmen {
 		double bf = fahrzeuge.stream()
 				.mapToDouble(f -> f.getPlatz() * (100.0 + f.getBeladungstyp().getPlatz()) / 100.0)
 				.sum();
-		System.out.println("verbrauchterPlatz ohne stream: " + belegteFlaeche);
-		System.out.println("verbrauchterPlatz mit stream: " + bf);
+		// System.out.println("verbrauchterPlatz ohne stream: " + belegteFlaeche);
+		// System.out.println("verbrauchterPlatz mit stream: " + bf);
 		return belegteFlaeche;
 	}
 	public void addFahrzeug(Fahrzeug fahrzeug) {
@@ -108,14 +108,13 @@ public class TransportUnternehmen {
 			throw new IllegalArgumentException("Nicht genug Abstellflaeche im TransportUnternehmen");
 		}
 	}
-
+	public String getTransportUnternehmenDaten() {
+		return ""+id+
+				", "+name+
+				", "+verfuegbareAbstellflaeche()+" m2";
+	}
 	@Override
 	public String toString() {
-		return "TransportUnternehmen{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				", abstellFlaeche=" + abstellFlaeche +
-				", fahrzeuge=" + fahrzeuge +
-				'}';
+		return "[ " + this.getTransportUnternehmenDaten() + " ]";
 	}
 }

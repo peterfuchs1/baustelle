@@ -1,9 +1,16 @@
 plugins {
     id 'java'
+	id 'application'
 }
 
 group = 'at.ac.tgm'
 version = '1.0-SNAPSHOT'
+
+
+// Setze die Hauptklasse
+application {
+    mainClass = 'baustelle.Main'
+}
 
 repositories {
     mavenCentral()

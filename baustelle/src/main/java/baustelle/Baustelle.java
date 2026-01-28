@@ -75,8 +75,8 @@ public class Baustelle {
                 .mapToDouble(f -> f.getPlatz() * 0.1)
                 .sum();
         double belegterPlatzStream = fahrzeugPlatz + gefahrengutPlatz;
-        System.out.println("Belegter Platz mit stream: " + belegterPlatzStream);
-        System.out.println("Belegter Platz ohne stream: " + belegterPlatz);
+        // System.out.println("Belegter Platz mit stream: " + belegterPlatzStream);
+        // System.out.println("Belegter Platz ohne stream: " + belegterPlatz);
         double maxBelegterPlatz = platzangebot;
         if(belegterPlatz + fahrzeug.getPlatz() <= maxBelegterPlatz) {
             // Lastwagen mit Beladungstyp Sperrgut
@@ -96,15 +96,15 @@ public class Baustelle {
         }
 
     }
+    public String getBaustellenDaten() {
+        return plz +
+                ", " + ort +
+                ", " + strasse +
+                " " + hausnummer +
+                ", Zugewiesene Fahrzeuge: " + fahrzeuge.size();
+    }
     @Override
     public String toString() {
-        return "Baustelle{" +
-                "plz=" + plz +
-                ", ort='" + ort + '\'' +
-                ", strasse='" + strasse + '\'' +
-                ", hausnummer=" + hausnummer +
-                ", platzangebot=" + platzangebot +
-                ", fahrzeuge=" + fahrzeuge +
-                '}';
+        return "[ " + this.getBaustellenDaten() + " ]";
     }
 }

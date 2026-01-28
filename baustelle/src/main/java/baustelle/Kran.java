@@ -19,12 +19,12 @@ public class Kran extends Fahrzeug {
 	}
 	public void gewichtMax(int gewichtMax) {
 		if(gewichtMax!=0) {
-			throw new IllegalArgumentException("GewichtMax muss 0 fuer Kran sein");
+			throw new IllegalArgumentException("GewichtMax muss fuer Kran 0 sein");
 		}
 	}
 	public void beladungsTyp(Beladungstyp beladungstyp) {
 		if(beladungstyp != Beladungstyp.NORMAL) {
-			throw new IllegalArgumentException("Beladungstyp muss NORMAL fuer Kran sein");
+			throw new IllegalArgumentException("Beladungstyp fuer Kran muss NORMAL sein");
 		}
 	}
 
@@ -35,13 +35,13 @@ public class Kran extends Fahrzeug {
 	public int getHubgewicht() {
 		return hubgewicht;
 	}
-
+	public String getKranDaten(){
+		return ": "+this.hoehe+" m"+
+				", "+this.hubgewicht+" kg"+
+				", "+this.getAnzBaustellen()+" Baustelle (n)";
+	}
 	@Override
 	public String toString() {
-		return super.toString()+" -> Kran{" +
-				"hoehe=" + hoehe +
-				", hubgewicht=" + hubgewicht +
-				", beladungsTyp=" + beladungsTyp +
-				'}';
+		return "[ "+this.getKennzeichen()+": "+this.getKranDaten()+" ]";
 	}
 }

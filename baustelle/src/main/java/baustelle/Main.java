@@ -15,13 +15,13 @@ public class Main {
         Baustelle b2= new Baustelle(1300, "Wien", "AndereStrasse", 2, 10);
         Baustelle b3= new Baustelle(1400, "Wien", "DritteStrasse", 3, 80);
         System.out.println("Baustelle 1: " + b1);
-        System.out.println("Transportunternehmen: " + tu1);
+        System.out.println("Transportunternehmen 1: " + tu1);
         tu1.addFahrzeug(f1);
         tu1.addFahrzeug(f2);
         tu1.addFahrzeug(l1);
         tu1.addFahrzeug(k1);
-        System.out.println(tu1);
-        System.out.println(tu1.verfuegbareAbstellflaeche());
+        System.out.println("Verfuegbare Abstellflaeche: "+tu1.verfuegbareAbstellflaeche());
+        System.out.println("Transportunternehmen 1: " + tu1);
         b1.addFahrzeug(k1);
         b1.addFahrzeug(f1);
         b1.addFahrzeug(l1);
@@ -30,9 +30,9 @@ public class Main {
         double maxGewicht=tu1.maxBeladungsgewichtAllerFahrzeuge();
         System.out.println("Maximales Beladungsgewicht aller Fahrzeuge: " + maxGewicht);
         System.out.println("Kann Beladung abladen: " + tu1.kannBelagungAbladen());
-        System.out.println(b1);
+        System.out.println("Baustelle 1: " +b1);
         try{
-        new Lastwagen("BADTR123", 5000, 2000, 20, Beladungstyp.NORMAL, 2);
+        new Lastwagen("BADTR123", 1500, 2000, 20, Beladungstyp.NORMAL, 2);
         } catch(IllegalArgumentException e) {
             System.out.println("Fehler beim Erstellen des Lastwagens: " + e.getMessage());
         }
