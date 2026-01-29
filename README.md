@@ -20,7 +20,7 @@ Jedes **Fahrzeug** besitzt
 -	einen bestimmten *Beladungstyp* auf.   
 
 Als **Beladungstyp** kommt ausschließlich 
--	NORMAL (O), SPERRGUT (3), GEFAHRENGUT (10), EXPLOSIV (20) zum Einsatz.    
+-	NORMAL (0), SPERRGUT (3), GEFAHRENGUT (10), EXPLOSIV (20) zum Einsatz.    
 -	Der Wert in Klammer gibt an um wieviel sich der benötigte Platzbedarf auf einer Baustelle prozentuell erhöht, wenn für das Fahrzeug der Beladungstyp gegeben ist.   
 
 Dem Transportunternehmen können *beliebig viele* Fahrzeuge zugeordnet werden, es muss aber darauf geachtet werden, dass alle Fahrzeuge auf der Abstellfläche Platz haben. Hier muss berücksichtigt werden, dass 5% der Abstellfläche nicht verparkt werden dürfen, damit die Fahrzeuge manövrierfähig bleiben.    
