@@ -1,0 +1,63 @@
+@startuml
+class TransportUnternehmen {
+  - id: int  {= 100000}
+  - name : String  {not null, not blank}
+  - abstellFlaeche : int
+  - beladungsTyp : Beladungstyp
+
+  + TransportUnternehmen(String name : int, int abstellFlaeche : int)
+}
+
+class Fahrzeug {
+  - kennzeichen : String {not null, not blank, unique}
+  - gewichtMax : int
+  - gewichtAktuell : int
+  - platz : int
+  - beladungstyp : Beladungstyp
+
+  + Fahrzeug(String kennzeichen : int, int gewichtMax : int, int gewichtAktuell : int, int platz : int, beladungstyp : Beladungstyp)
+}
+
+class Baustelle{
+ - plz : int
+ - ort : String
+ - strasse : String
+ - hausnummer : int
+ - platzangebot : int
+
+ + Baustelle(plz : int, ort : String, strasse : String, hausnummer : int, platzangebot : int)
+}
+
+class Kran {
+ - hoehe : int
+ - hubgewicht : int
+ - gewichtMax : int = 0
+ - beladungsTyp : Beladungstyp {=Beladungstyp.NORMAL}
+
+ + Kran(String kennzeichen : int, int gewichtAktuell : int, int platz : int, Beladungstyp beladungstyp : int, int hoehe : int, int hubgewicht : int)
+}
+
+class Lastwagen{
+ - achsenzahl : int {achsenzahl>1, achsenzahl<5}
+ - gewichtMax : int {>=2000}
+ - platz : int {>=10}
+
+ + Lastwagen(String kennzeichen : int, int gewichtMax : int, int gewichtAktuell : int, int platz : int, beladungstyp : Beladungstyp, int achsenzahl : int)
+}
+enum Beladungstyp{
+ NORMAL = 0
+ SPERRGUT = 3
+ GEFAHRENGUT = 10
+ EXPLOSIV = 20
+ - value: int
+ - Beladungstyp( value: int)
+ + getPlatz(): int
+}
+
+Fahrzeug <|--- Kran
+Fahrzeug <|--- Lastwagen
+
+TransportUnternehmen "0..1 " --> "0..n " Fahrzeug  : besitzt
+Baustelle "0..2 " --> "0..n " Fahrzeug  : hat
+
+@enduml
