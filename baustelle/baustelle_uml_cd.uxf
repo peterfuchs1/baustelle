@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>20</y>
+      <w>590</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>TransportUnternehmen
+--
+- id : int {= 100000}
+- name : String {not null, not blank}
+- abstellFlaeche : int
+- beladungsTyp : Beladungstyp
+--
++ TransportUnternehmen(String name : int, int abstellFlaeche : int)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>320</y>
+      <w>200</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+Beladungstyp
+--
+NORMAL = 0
+SPERRGUT = 3
+GEFAHRENGUT = 10
+EXPLOSIV = 20
+bg=YELLOW</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>300</y>
+      <w>790</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Fahrzeug
+--
+- kennzeichen : String {not null, not blank, unique}
+- gewichtMax : int
+- gewichtAktuell : int
+- platz : int
+- beladungstyp : Beladungstyp
+--
++ Fahrzeug(String kennzeichen : int, int gewichtMax : int, int gewichtAktuell : int, int platz : int, beladungstyp : Beladungstyp)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>510</y>
+      <w>870</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Kran
+--
+- hoehe : int
+- hubgewicht : int
+- gewichtMax : int = 0
+- beladungsTyp : Beladungstyp {=Beladungstyp.NORMAL}
+--
++ Kran(String kennzeichen : int, int gewichtAktuell : int, int platz : int, Beladungstyp beladungstyp : int, int hoehe : int, int hubgewicht : int)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>720</y>
+      <w>1080</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Lastwagen
+--
+- achsenzahl : int {achsenzahl&gt;1, achsenzahl&lt;5}
+- gewichtMax : int {&gt;=2000}
+- platz : int {&gt;=10}
+--
++ Lastwagen(String kennzeichen : int, int gewichtMax : int, int gewichtAktuell : int, int platz : int, beladungstyp : Beladungstyp, int achsenzahl : int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>430</y>
+      <w>600</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;580.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>430</y>
+      <w>90</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>50</y>
+      <w>660</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Baustelle
+--
+- plz : int
+- ort : String
+- strasse : String
+- hausnummer : int
+- platzangebot : int
+--
++ Baustelle(plz : int, ort : String, strasse : String, hausnummer : int, platzangebot : int)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>120</y>
+      <w>70</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..1
+&lt; hat</panel_attributes>
+    <additional_attributes>10.0;180.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>130</y>
+      <w>110</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..1
+besitzt &gt;</panel_attributes>
+    <additional_attributes>70.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
