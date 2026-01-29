@@ -114,7 +114,7 @@ Achten Sie darauf, dass das Programm vollständig durchlaufen werden kann und da
 Ein möglicher Testplan könnte wie folgt aussehen (die Angabe dient lediglich als Beispiel und ist in nicht ausführbaren pseudo-Code formuliert):   
 ### Objekterstellungen
 **Transportunternehmen:**   
-tul („Cargo Transport", 4000 m2)
+tul („Cargo Transport", 4000 m2)   
 **Fahrzeuge:**  
 fl („K0744", max 1500 kg, 690 kg, 7 m2, SPERRGUT),   
 f2 („W123AA", max 800 kg, 0 kg, 5 m2, GEFAHRENGUT)   
