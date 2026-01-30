@@ -1,4 +1,5 @@
 @startuml
+
 class TransportUnternehmen {
   - id: int  {= 100000}
   - name : String  {not null, not blank}
@@ -44,6 +45,7 @@ class Lastwagen{
 
  + Lastwagen(String kennzeichen : int, int gewichtMax : int, int gewichtAktuell : int, int platz : int, beladungstyp : Beladungstyp, int achsenzahl : int)
 }
+
 enum Beladungstyp{
  NORMAL = 0
  SPERRGUT = 3
