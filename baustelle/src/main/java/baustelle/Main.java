@@ -20,7 +20,7 @@ public class Main {
         tu1.addFahrzeug(f2);
         tu1.addFahrzeug(l1);
         tu1.addFahrzeug(k1);
-        System.out.println("Verfuegbare Abstellflaeche: "+tu1.verfuegbareAbstellflaeche());
+        System.out.println(tu1+"Verfuegbare Abstellflaeche: "+tu1.verfuegbareAbstellflaeche());
         System.out.println("Transportunternehmen 1: " + tu1);
         b1.addFahrzeug(k1);
         b1.addFahrzeug(f1);
@@ -55,8 +55,6 @@ public class Main {
         catch(IllegalArgumentException e) {
             System.out.println("Fehler beim Beladen des Fahrzeugs: " + e.getMessage());
         }
-
-
     }
 }
 
