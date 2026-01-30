@@ -22,4 +22,4 @@ jobs:
       
       - name: Run gradlew
         working-directory: baustelle
-        run: ./gradlew
+        run: ./gradlew run
