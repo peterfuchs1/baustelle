@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'at.ac.tgm'
-version = '1.2.3'
+version = '1.2.6'
 
 
 // Setze die Hauptklasse
@@ -26,20 +26,35 @@ test {
     useJUnitPlatform()
 }
 
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'at.ac.tgm.baustelle.Main',
+            'Implementation-Title': project.name,
+            'Implementation-Version': project.version
+        )
+    }
+}
+
+
 run {
-    def outputFile = file("${projectDir}/output.txt")
+    // Argumente von Kommandozeile
+    if (project.hasProperty('args')) {
+        args project.property('args').split(',')
+    }
     
-    // TeeOutputStream für gleichzeitiges Schreiben in Datei und Konsole
-    def fileStream = new FileOutputStream(outputFile)
-    def teeStream = new org.apache.tools.ant.util.TeeOutputStream(
-        fileStream, 
-        System.out
-    )
+    // JVM-Konfiguration
+    jvmArgs = ['-Xmx512m']
     
-    standardOutput = teeStream
+    // Umgebungsvariablen
+    environment 'APP_ENV', 'development'
+    
+    doFirst {
+        println "Starting application..."
+        println "Main class: ${application.mainClass.get()}"
+    }
     
     doLast {
-        fileStream.close()
-        println "\nOutput auch in ${outputFile.absolutePath} gespeichert"
+        println "Application finished."
     }
 }
