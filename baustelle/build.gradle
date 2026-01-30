@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'at.ac.tgm'
-version = '1.0-SNAPSHOT'
+version = '1.2.3'
 
 
 // Setze die Hauptklasse
@@ -24,4 +24,22 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+run {
+    def outputFile = file("${projectDir}/output.txt")
+    
+    // TeeOutputStream für gleichzeitiges Schreiben in Datei und Konsole
+    def fileStream = new FileOutputStream(outputFile)
+    def teeStream = new org.apache.tools.ant.util.TeeOutputStream(
+        fileStream, 
+        System.out
+    )
+    
+    standardOutput = teeStream
+    
+    doLast {
+        fileStream.close()
+        println "\nOutput auch in ${outputFile.absolutePath} gespeichert"
+    }
 }
