@@ -1,0 +1,44 @@
+name: Fix Detached HEAD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix-head:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Check current state
+        run: |
+          echo "Current branch:"
+          git branch -a
+          echo ""
+          echo "Current HEAD:"
+          git log -1 --oneline
+          echo ""
+          echo "Git status:"
+          git status
+      
+      - name: Create/fix main branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Sicherstellen, dass wir auf main sind
+          git checkout -B main
+          
+          # Zum Remote pushen
+          git push origin main --force-with-lease
+      
+      - name: Verify fix
+        run: |
+          echo "Branch after fix:"
+          git branch -a
+          git status
