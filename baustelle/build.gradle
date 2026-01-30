@@ -29,7 +29,7 @@ test {
 jar {
     manifest {
         attributes(
-            'Main-Class': 'at.ac.tgm.baustelle.Main',
+            'Main-Class': 'baustelle.Main',
             'Implementation-Title': project.name,
             'Implementation-Version': project.version
         )
