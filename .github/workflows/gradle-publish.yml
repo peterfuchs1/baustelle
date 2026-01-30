@@ -40,11 +40,8 @@ jobs:
       working-directory: ./baustelle
       run: ./gradlew build
 
-    # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
-    # the publishing section of your build.gradle
-    - name: Publish to GitHub Packages
+    - name: run with Gradle
       working-directory: ./baustelle
-      run: ./gradlew publish
-      env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: ./gradlew run
+
+    
