@@ -9,7 +9,7 @@ name: Gradle Package
 
 on:
   release:
-    types: [published]
+    types: [created]
 
 jobs:
   build:
@@ -44,4 +44,25 @@ jobs:
       working-directory: ./baustelle
       run: ./gradlew run
 
+    - name: Check for changes
+      id: check_changes
+      run: |
+        git add *
+        if git diff --staged --quiet; then
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+          echo "No changes to commit"
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "Changes detected:"
+          git diff --staged --name-only
+        fi
     
+    - name: Commit and push
+      if: steps.check_changes.outputs.has_changes == 'true'
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git commit -m "Auto-generated output from gradlew run [skip ci]"
+        git push
+    
+  
