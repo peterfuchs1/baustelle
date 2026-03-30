@@ -1,0 +1,52 @@
+@startuml
+!theme plain
+hide circle
+skinparam nodesep 90
+skinparam ClassAttributeIconSize 0
+
+class "Archiv" as ContextMuster {
+  - inhalt: List<Datei>
+  + Archiv()
+  + komprimieren(zielPfad: String): void
+  + setKompression(kompression: KompressionsAlgorithmus): void
+  + save(name: String): void
+  + addDatei(datei: Datei): void
+}
+ContextMuster o-l-> "- inhalt" Datei
+
+class Datei {
+  - name: String
+  - daten: byte[]
+  ---
+  ...
+}
+
+interface "KompressionsAlgorithmus" as Strategy <<interface>> {
+  {abstract} + komprimieren(daten: byte[]): byte[]
+}
+
+class "ZipKompression" as Strategy1 {
+  + komprimieren(daten: byte[]): byte[]
+}
+
+class "LzmaKompression" as Strategy2 {
+  - woerterbuchGroesse: int
+  + LzmaKompression(groesse: int)
+  + komprimieren(daten: byte[]): byte[]
+}
+
+class "ZstdKompression" as Strategy3 {
+  - kompressionsLevel: int
+  + ZstdKompression(level: int)
+  + komprimieren(daten: byte[]): byte[]
+}
+
+ContextMuster o--> "- kompression" Strategy
+
+Strategy <|..... Strategy1
+Strategy <|...... Strategy2
+Strategy <|..... Strategy3
+
+' Strategy1 -[hidden] Strategy2
+' Strategy2 -[hidden] Strategy3
+@enduml

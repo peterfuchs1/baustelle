@@ -1,0 +1,27 @@
+@startuml
+!theme plain
+hide circle
+skinparam ClassAttributeIconSize 0
+
+!include strategy-muster.puml
+
+hide Strategy
+hide Strategy2
+hide Strategy3
+
+remove ContextMuster
+
+class "Archiv" as Context {
+  ' - kompression: KompressionsAlgorithmus
+  \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\n\n
+  ---
+  + Archiv()
+  + komprimieren(zielPfad: String): void
+  ' + setKompression(kompression: KompressionsAlgorithmus): void
+  \n\n\n\n
+}
+Context o-l-> "- inhalt" Datei
+
+Context --[hidden] Strategy
+
+@enduml
